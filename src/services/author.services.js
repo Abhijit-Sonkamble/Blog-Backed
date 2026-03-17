@@ -30,5 +30,13 @@ module.exports = class AuthorAuthService {
     //     }
     // }
 
+    async updateBlog () {
+        try {
+            
+        } catch (error) {
+            console.log("Error in deleteBlog services", error)
+        }
+    }
+
 
 }

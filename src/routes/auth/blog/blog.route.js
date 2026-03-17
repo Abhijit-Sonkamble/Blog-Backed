@@ -1,7 +1,7 @@
 const express = require("express");
 
 const auth = require("../../../middleware/auth.middleware");
-const { addBlog, fetchAllBlog, fetchSingleBlog } = require("../../../controllers/blog/blog.controller");
+const { addBlog, fetchAllBlog, fetchSingleBlog, updateBlog } = require("../../../controllers/blog/blog.controller");
 
 const blogRoute = express.Router();
 
@@ -11,7 +11,10 @@ blogRoute.post("/" , auth,  addBlog);
 blogRoute.get("/" , fetchAllBlog); 
 
 //fetch single blog
-blogRoute.get("/:id" , fetchSingleBlog); 
+blogRoute.get("/:id" , fetchSingleBlog);
+
+//Update
+blogRoute.patch("/:id" ,auth, updateBlog);
 
 
 

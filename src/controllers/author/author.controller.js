@@ -51,7 +51,7 @@ module.exports.loginAuthor = async(req, res) => {
 
      //JWT logic
      const payload = {
-      authorID : author.id
+      authorId : author.id
      }
 
      const token = jwt.sign(payload, process.env.SECRET);

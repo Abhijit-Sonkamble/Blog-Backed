@@ -21,12 +21,20 @@ module.exports = class BlogAuthService {
         }
     }
 
-    //Fetch All Admin
+    //Fetch All Blog
     async fetchAllBlog(){
         try {
             return await Blog.find()
         } catch (error) {
             console.log("Blog Not Fetched....!");
+        }
+    }
+
+    async updateBlog(query,body){
+        try {
+            return Blog.findOneAndUpdate(query , body, {new:true})
+        } catch (error) {
+            console.log("Error in updateBlog", error)
         }
     }
 

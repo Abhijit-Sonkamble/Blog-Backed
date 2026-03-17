@@ -11,15 +11,11 @@ module.exports = (req, res, next) => {
   }
 
   const token = header.split(" ")[1];
-
+  
   try {
-
-    const verify = jwt.verify(token, process.env.SECRET);
-
-    req.user = verify;
-    console.log("verify ", verify);
     
-    console.log(req.user);
+    const verify = jwt.verify(token, process.env.SECRET);
+    req.user = verify;
 
     next();
 
