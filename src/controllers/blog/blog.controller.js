@@ -80,31 +80,18 @@ module.exports.updateBlog = async (req, res) => {
   }
 };
 
-// module.exports.updateBlog = async (req, res) => {
-//   try {
-//     const blog = await blogService.getById(req.params.id, req.authorId);
+//Delete blog
+module.exports.deleteBlog = async(req, res)=>{
+   try {
+         const blog = await blogAuthService.deleteBlog({_id: req.params.id, authorId: req.user.authorId, isDeleted: false})
 
-//     if (!blog) {
-//       return res.status(404).json(errorResponse(404, true, MSG.POST_NOT_FOUND));
-//     }
+         if (!blog) {
+                return res.status(statusCode.NOT_FOUND).json(errorRes(statusCode.NOT_FOUND, true, MSG.BLOG_DELETE_FAILED));  
+         }
 
-//     const updatedBlog = await blogService.update(
-//       req.params.id,
-//       req.authorId,
-//       req.body,
-//     );
+         return res.status(statusCode.OK).json(successRes(statusCode.OK, false, MSG.BLOG_DELETE_SUCCESS, blog));
 
-//     if (!updatedBlog) {
-//       return res
-//         .status(400)
-//         .json(errorResponse(400, true, MSG.POST_UPDATE_FAILED));
-//     }
-
-//     return res
-//       .status(200)
-//       .json(successResponse(200, false, MSG.POST_UPDATE_SUCCESS, updatedBlog));
-//   } catch (err) {
-//     console.log(err);
-//     return res.status(500).json(errorResponse(500, true, MSG.SERVER_ERROR));
-//   }
-// };
+   } catch (error) {
+      console.log("deleteBlog controller:", err);
+   }
+}

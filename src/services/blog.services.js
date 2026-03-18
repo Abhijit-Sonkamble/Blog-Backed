@@ -38,5 +38,13 @@ module.exports = class BlogAuthService {
         }
     }
 
+    async deleteBlog(query){
+         try {
+            return await Blog.findOneAndUpdate(query , {isDeleted: true}, {new:true})
+        } catch (error) {
+            console.log("Error in deleteBlog", error)
+        }
+    }
+
 
 }

@@ -20,6 +20,7 @@ module.exports.MSG = {
     BLOG_CREATE_FAILED: "Blog created failed",
     BLOG_UPDATE_SUCCESS: "Blog updated successfully",
     BLOG_DELETE_SUCCESS: "Blog deleted successfully",
+    BLOG_DELETE_FAILED: "Blog deleted failed",
     BLOG_FETCH_SUCCESS: "Blog fetched successfully",
     BLOG_LIST_FETCH_SUCCESS: "Blogs fetched successfully",
 

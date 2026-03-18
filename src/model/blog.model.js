@@ -19,8 +19,7 @@ const blogSchema = mongoose.Schema ({
         default: true
     },
     authorId: {
-        type : String,
-        // required : true
+        type : String
     },
 isDeleted: {
   type: Boolean,
